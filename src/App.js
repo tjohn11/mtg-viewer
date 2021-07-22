@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Container } from '@material-ui/core';
+import Header from './Header'
+import CardList from './CardList'
+import Form from './Form'
+import CardDisplay from './CardDisplay'
 
-function App() {
+export default function App() {
+
+  const [cardlist, setCardList] = useState([])
+  const [currentCard, setCurrent] = useState({})
+
+  const updateList = list => {
+    setCardList(list)
+  }
+
+  const setCurrentCard = e => {
+    console.log(e)
+    const card = e.target.value
+    console.log(card)
+    // setCurrent(card)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Header />
+      <Form
+        onSubmit={updateList}
+      />
+      <CardList
+        setCurrentCard={setCurrentCard}
+        cardlist={cardlist}
+      >
+      </CardList>
+      <CardDisplay currentCard={currentCard}/>
+    </Container>
   );
 }
-
-export default App;
