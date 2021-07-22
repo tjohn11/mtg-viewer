@@ -1,9 +1,22 @@
-# Magic The Gathering Card Finder
+## Magic The Gathering Card Finder
 
 A small toy project I build to showcase a few basic skills in React including the use of hooks,
 API/SDK integration, and UI library application.
 
-## Available Scripts
+# Example Use
+
+For those who are not familiar with Magic The Gathering (MTG), it is a trading card game created
+in 1993. It also happens to be a favorite pastime of mine.
+
+An example search for the application would look like this
+
+#### `Search for Card/Set: Fury Sliver`
+#### `Search Type: Card`
+
+#### `Search for Card/Set: Throne of Eldraine`
+#### `Search Type: Set`
+
+# Available Scripts
 
 In the project directory, you can run:
 
