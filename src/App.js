@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Container } from '@material-ui/core';
 import Header from './Header'
 import CardList from './CardList'
 import Form from './Form'
 import CardDisplay from './CardDisplay'
+import Grid from '@material-ui/core/Grid'
 
 export default function App() {
 
@@ -14,25 +14,27 @@ export default function App() {
     setCardList(list)
   }
 
-  const setCurrentCard = e => {
-    console.log(e)
-    const card = e.target.value
-    console.log(card)
-    // setCurrent(card)
+  const setCurrentCard = card => {
+    setCurrent(card)
   }
 
   return (
-    <Container>
-      <Header />
-      <Form
-        onSubmit={updateList}
-      />
-      <CardList
-        setCurrentCard={setCurrentCard}
-        cardlist={cardlist}
-      >
-      </CardList>
-      <CardDisplay currentCard={currentCard}/>
-    </Container>
+    <Grid container>
+      <Grid item xs={12}>
+        <Header />
+      </Grid>
+      <Grid item xs={4}>
+        <Form onSubmit={updateList} />
+      </Grid>
+      <Grid item xs={4}>
+        <CardList
+          setCurrentCard={setCurrentCard}
+          cardlist={cardlist}
+        />
+      </Grid>
+      <Grid item xs={4}>
+        <CardDisplay card={currentCard} />
+      </Grid>
+    </Grid>
   );
 }
